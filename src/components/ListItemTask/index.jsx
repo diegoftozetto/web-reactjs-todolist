@@ -7,11 +7,11 @@ export const ListItemTask = ({ task }) => {
 
   const handlerEdit = (task) => {
     dispatch(actions.edit(task));
-  }
+  };
 
   const handlerRemove = (id) => {
     dispatch(actions.remove(id));
-  }
+  };
 
   return (
     <div className="listitemtask-container">
@@ -20,8 +20,16 @@ export const ListItemTask = ({ task }) => {
         <p>{task.description}</p>
       </div>
       <div className="options">
-        <img onClick={() => handlerEdit(task)} src="https://img.icons8.com/material-outlined/24/000000/edit--v1.png" alt=""/>
-        <img onClick={() => handlerRemove(task.id)} src="https://img.icons8.com/material-rounded/24/000000/filled-trash.png" alt=""/>
+        <img
+          onClick={() => handlerEdit(task)}
+          src="https://img.icons8.com/material-outlined/24/000000/edit--v1.png"
+          alt=""
+        />
+        <img
+          onClick={() => handlerRemove(task.id)}
+          src="https://img.icons8.com/material-rounded/24/000000/filled-trash.png"
+          alt=""
+        />
       </div>
     </div>
   );

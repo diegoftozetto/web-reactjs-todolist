@@ -17,8 +17,8 @@ export const ListTask = () => {
         {allTasks.length === 0 && (
           <h5 className="no-tasks">Nenhuma tarefa cadastrada =(</h5>
         )}
-        {allTasks.map((task, index) => (
-          <ListItemTask key={index} task={{ id: index, ...task }} />
+        {allTasks.map((task) => (
+          <ListItemTask key={task.id} task={task} />
         ))}
       </div>
     </div>

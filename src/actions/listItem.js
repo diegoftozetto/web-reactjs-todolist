@@ -1,14 +1,14 @@
-import { actionTypes } from "../constants/listItem"
+import { actionTypes } from "../constants/listItem";
 
 export const actions = {
   add: (task) => ({
     type: actionTypes.ADD,
-    payload: task
+    payload: task,
   }),
 
   edit: (task) => ({
     type: actionTypes.EDIT,
-    payload: task
+    payload: task,
   }),
 
   cancelEdit: () => ({
@@ -18,11 +18,11 @@ export const actions = {
   update: (id, task) => ({
     type: actionTypes.UPDATE,
     id,
-    payload: task
+    payload: task,
   }),
 
   remove: (id) => ({
     type: actionTypes.REMOVE,
-    payload: id
-  })
-}
+    payload: id,
+  }),
+};

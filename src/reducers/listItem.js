@@ -20,8 +20,8 @@ export const reducer = (state = INITIAL_STATE, action) => {
     case actionTypes.UPDATE:
       return {
         ...state,
-        allTasks: state.allTasks.map((task, index) => {
-          if (index === action.id) {
+        allTasks: state.allTasks.map((task) => {
+          if (task.id === action.id) {
             return {
               ...task,
               name: action.payload.name,
@@ -34,7 +34,7 @@ export const reducer = (state = INITIAL_STATE, action) => {
     case actionTypes.REMOVE:
       return {
         allTasks: [
-          ...state.allTasks.filter((task, index) => index !== action.payload),
+          ...state.allTasks.filter((task) => task.id !== action.payload),
         ],
         taskEdit: null,
       };

@@ -1,10 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectors } from "../../selectors/listItem";
 import { actions } from "../../actions/listItem";
 import { Title } from "../../components/Title";
 import "./styles.css";
-import { useEffect } from "react";
 
 export const FormTask = () => {
   const [name, setName] = useState("");
@@ -32,20 +31,21 @@ export const FormTask = () => {
   const clearForm = () => {
     setName("");
     setDescription("");
-  }
+  };
 
   const formSubmitHandler = (e) => {
     e.preventDefault();
     const { name, description } = e.target;
 
-    const task = {
+    var task = {
       name: name.value,
       description: description.value,
     };
 
     if (!!taskEdit) {
-      dispatch(actions.update(taskEdit.id, task))
+      dispatch(actions.update(taskEdit.id, task));
     } else {
+      task = { id: new Date(), ...task };
       dispatch(actions.add(task));
     }
 

@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import { reducer as ListItemReducers } from './listItem';
+import { reducer as ListItemReducers } from "./listItem";
 
 export const reducers = combineReducers({
-  ListItemReducers
-})
+  ListItemReducers,
+});

@@ -1,12 +1,12 @@
-import { Provider } from 'react-redux';
-import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
-import { Menu } from '../../components/Menu';
-import { store } from '../../store';
-import { About } from '../About';
-import { Home } from '../Home';
+import { Provider } from "react-redux";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import { Menu } from "../../components/Menu";
+import { store } from "../../store";
+import { About } from "../About";
+import { Home } from "../Home";
 
 export const App = () => {
-  return(
+  return (
     <Provider store={store}>
       <BrowserRouter>
         <Menu />
@@ -19,5 +19,5 @@ export const App = () => {
         </Switch>
       </BrowserRouter>
     </Provider>
-  )
-}
+  );
+};
