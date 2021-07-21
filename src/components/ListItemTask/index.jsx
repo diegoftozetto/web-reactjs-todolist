@@ -20,8 +20,8 @@ export const ListItemTask = ({ task }) => {
         <p>{task.description}</p>
       </div>
       <div className="options">
-        <a href="" onClick={() => handlerEdit(task.index)}>Editar</a>
-        <a href="" onClick={() => handlerRemove(task.index)}>Remover</a>
+        <img onClick={() => handlerEdit(task.index)} src="https://img.icons8.com/material-outlined/24/000000/edit--v1.png" alt=""/>
+        <img onClick={() => handlerRemove(task.index)} src="https://img.icons8.com/material-rounded/24/000000/filled-trash.png" alt=""/>
       </div>
     </div>
   );
