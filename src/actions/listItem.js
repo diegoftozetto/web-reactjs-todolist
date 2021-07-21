@@ -6,13 +6,23 @@ export const actions = {
     payload: task
   }),
 
-  edit: (index) => ({
+  edit: (task) => ({
     type: actionTypes.EDIT,
-    payload: index
+    payload: task
   }),
 
-  remove: (index) => ({
+  cancelEdit: () => ({
+    type: actionTypes.CANCEL_EDIT,
+  }),
+
+  update: (id, task) => ({
+    type: actionTypes.UPDATE,
+    id,
+    payload: task
+  }),
+
+  remove: (id) => ({
     type: actionTypes.REMOVE,
-    payload: index
+    payload: id
   })
 }

@@ -1,12 +1,25 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { selectors } from "../../selectors/listItem";
 import { actions } from "../../actions/listItem";
+import { Title } from "../../components/Title";
 import "./styles.css";
+import { useEffect } from "react";
 
 export const FormTask = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
+
+  const taskEdit = useSelector(selectors.getTaskEdit);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (!!taskEdit) {
+      const { name, description } = taskEdit;
+      setName(name);
+      setDescription(description);
+    }
+  }, [taskEdit]);
 
   const handlerChangeName = (e) => {
     setName(e.target.value);
@@ -15,6 +28,11 @@ export const FormTask = () => {
   const handlerChangeDescription = (e) => {
     setDescription(e.target.value);
   };
+
+  const clearForm = () => {
+    setName("");
+    setDescription("");
+  }
 
   const formSubmitHandler = (e) => {
     e.preventDefault();
@@ -25,17 +43,30 @@ export const FormTask = () => {
       description: description.value,
     };
 
-    setName("");
-    setDescription("");
+    if (!!taskEdit) {
+      dispatch(actions.update(taskEdit.id, task))
+    } else {
+      dispatch(actions.add(task));
+    }
 
-    dispatch(actions.add(task));
+    clearForm();
+  };
+
+  const handlerCancelButton = () => {
+    dispatch(actions.cancelEdit());
+    clearForm();
   };
 
   return (
     <>
       <form onSubmit={formSubmitHandler}>
         <div className="inputtask-flex-container">
+          <Title
+            name="Nova Tarefa"
+            subName="Aqui você pode criar uma nova tarefa..."
+          />
           <input
+            required
             type="text"
             name="name"
             id="name"
@@ -44,6 +75,7 @@ export const FormTask = () => {
             value={name}
           />
           <textarea
+            required
             name="description"
             id="description"
             placeholder="Informe a descrição da tarefa..."
@@ -52,7 +84,15 @@ export const FormTask = () => {
             onChange={handlerChangeDescription}
             value={description}
           />
-          <button type="submit">Adicionar Tarefa</button>
+          {!!!taskEdit && <button type="submit">Adicionar Tarefa</button>}
+          {!!taskEdit && (
+            <div className="inputtask-editing">
+              <button type="button" onClick={handlerCancelButton}>
+                Cancelar
+              </button>
+              <button type="submit">Salvar</button>
+            </div>
+          )}
         </div>
       </form>
     </>

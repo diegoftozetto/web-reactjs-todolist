@@ -5,12 +5,12 @@ import "./styles.css";
 export const ListItemTask = ({ task }) => {
   const dispatch = useDispatch();
 
-  const handlerEdit = (index) => {
-    //dispatch(actions.edit(index));
+  const handlerEdit = (task) => {
+    dispatch(actions.edit(task));
   }
 
-  const handlerRemove = (index) => {
-    dispatch(actions.remove(index));
+  const handlerRemove = (id) => {
+    dispatch(actions.remove(id));
   }
 
   return (
@@ -20,8 +20,8 @@ export const ListItemTask = ({ task }) => {
         <p>{task.description}</p>
       </div>
       <div className="options">
-        <img onClick={() => handlerEdit(task.index)} src="https://img.icons8.com/material-outlined/24/000000/edit--v1.png" alt=""/>
-        <img onClick={() => handlerRemove(task.index)} src="https://img.icons8.com/material-rounded/24/000000/filled-trash.png" alt=""/>
+        <img onClick={() => handlerEdit(task)} src="https://img.icons8.com/material-outlined/24/000000/edit--v1.png" alt=""/>
+        <img onClick={() => handlerRemove(task.id)} src="https://img.icons8.com/material-rounded/24/000000/filled-trash.png" alt=""/>
       </div>
     </div>
   );
