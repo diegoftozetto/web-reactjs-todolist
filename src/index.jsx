@@ -1,15 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Menu } from './components/Menu';
 import './styles/global-styles.css';
-import { Home } from './templates/Home';
+import { App } from './templates/App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <div className="App">
-      <Menu />
-      <Home />
-    </div>
+    <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );

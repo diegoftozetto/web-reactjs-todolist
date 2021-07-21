@@ -1,9 +1,12 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { actions } from "../../actions/listItem";
 import "./styles.css";
 
-export const FormTask = ({ formSubmitHandler }) => {
+export const FormTask = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
+  const dispatch = useDispatch();
 
   const handlerChangeName = (e) => {
     setName(e.target.value);
@@ -11,6 +14,21 @@ export const FormTask = ({ formSubmitHandler }) => {
 
   const handlerChangeDescription = (e) => {
     setDescription(e.target.value);
+  };
+
+  const formSubmitHandler = (e) => {
+    e.preventDefault();
+    const { name, description } = e.target;
+
+    const task = {
+      name: name.value,
+      description: description.value,
+    };
+
+    setName("");
+    setDescription("");
+
+    dispatch(actions.add(task));
   };
 
   return (

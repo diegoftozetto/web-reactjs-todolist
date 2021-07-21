@@ -12,6 +12,7 @@
 .options a {
   margin-right: 10px;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .options a:nth-child(1) {

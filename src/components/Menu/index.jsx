@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./styles.css";
 
 export const Menu = () => {
@@ -5,10 +6,10 @@ export const Menu = () => {
     <nav className="menu-background">
       <ul className="menu-flex-container">
         <li>
-          <a href="#">Home</a>
+          <Link to="/">Home</Link>
         </li>
         <li>
-          <a href="#">About</a>
+          <Link to="/about">About</Link>
         </li>
       </ul>
     </nav>
