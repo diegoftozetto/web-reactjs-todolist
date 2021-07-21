@@ -1,5 +1,5 @@
 import { Provider } from 'react-redux';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import { Menu } from '../../components/Menu';
 import { store } from '../../store';
 import { About } from '../About';
@@ -11,8 +11,11 @@ export const App = () => {
       <BrowserRouter>
         <Menu />
         <Switch>
-          <Route path="/" component={Home} exact/>
           <Route path="/about" component={About} />
+          <Route path="/home" component={Home} />
+          <Route path="/" exact>
+            <Redirect to="/home" />
+          </Route>
         </Switch>
       </BrowserRouter>
     </Provider>

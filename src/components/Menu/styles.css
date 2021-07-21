@@ -14,16 +14,16 @@
   height: 50px;
 }
 
-.menu-background ul {
-  list-style-type: none;
-}
-
-.menu-flex-container li a {
+.menu-flex-container a {
   text-decoration: none;
   color: black;
 }
 
-.menu-flex-container li a:hover {
+.menu-flex-container a:hover {
   color: rgb(0, 72, 139);
   text-shadow: 2px 2px 8px rgba(20, 49, 110, 0.418);
+}
+
+.menu-background .active {
+  font-weight: bold;
 }
