@@ -6,7 +6,7 @@ export const Menu = () => {
     <nav className="menu-background">
       <div className="menu-flex-container">
         <NavLink to="/home">Home</NavLink>
-        <NavLink to="/about">About</NavLink>
+        <NavLink to="/about">Sobre</NavLink>
       </div>
     </nav>
   );
