@@ -14,7 +14,7 @@ export const ListItemTask = ({ task }) => {
   };
 
   return (
-    <div className="listitemtask-container">
+    <div className="listitemtask-grid">
       <div className="content">
         <h5>{task.name}</h5>
         <p>{task.description}</p>

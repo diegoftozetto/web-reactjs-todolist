@@ -67,6 +67,7 @@ export const FormTask = () => {
           />
           <input
             required
+            maxLength="150"
             type="text"
             name="name"
             id="name"
