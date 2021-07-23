@@ -1,4 +1,7 @@
 export const actionTypes = {
+  FETCH_LOADING: "FETCH_LOADING",
+  FETCH_ERROR: "FETCH_ERROR",
+  LOAD_TASKS: "LOAD_TASKS",
   ADD: "ADD",
   EDIT: "EDIT",
   CANCEL_EDIT: "CANCEL_EDIT",

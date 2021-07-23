@@ -2,26 +2,35 @@ import { actionTypes } from "../constants/listItem";
 
 const INITIAL_STATE = {
   allTasks: [],
+  loading: false,
   taskEdit: null,
 };
 
 export const reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case actionTypes.FETCH_LOADING:
+      return { ...state, loading: true };
+    case actionTypes.FETCH_ERROR:
+      return { ...state, loading: false };
+    case actionTypes.LOAD_TASKS:
+      return { ...state, loading: false, allTasks: action.payload };
     case actionTypes.ADD:
       return {
         ...state,
         allTasks: [...state.allTasks, action.payload],
+        loading: false,
         taskEdit: null,
       };
     case actionTypes.EDIT:
-      return { ...state, taskEdit: action.payload };
+      return { ...state, loading: false, taskEdit: action.payload };
     case actionTypes.CANCEL_EDIT:
-      return { ...state, taskEdit: null };
+      return { ...state, loading: false, taskEdit: null };
     case actionTypes.UPDATE:
       return {
         ...state,
+        loading: false,
         allTasks: state.allTasks.map((task) => {
-          if (task.id === action.id) {
+          if (task.id === action.payload.id) {
             return {
               ...task,
               name: action.payload.name,
@@ -36,6 +45,7 @@ export const reducer = (state = INITIAL_STATE, action) => {
         allTasks: [
           ...state.allTasks.filter((task) => task.id !== action.payload),
         ],
+        loading: false,
         taskEdit: null,
       };
     default:

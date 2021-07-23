@@ -41,15 +41,15 @@ export const FormTask = () => {
       name: name.value,
       description: description.value,
     };
+    clearForm();
 
     if (!!taskEdit) {
-      dispatch(actions.update(taskEdit.id, task));
+      task = { id: taskEdit.id, ...task };
+      dispatch(actions.update(task));
     } else {
       task = { id: new Date(), ...task };
       dispatch(actions.add(task));
     }
-
-    clearForm();
   };
 
   const handlerCancelButton = () => {
