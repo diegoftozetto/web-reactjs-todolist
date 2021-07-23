@@ -1,4 +1,4 @@
-import { actionTypes } from "../constants/listItem";
+import { actionTypes } from '../constants/listItem';
 
 const INITIAL_STATE = {
   allTasks: [],
@@ -42,9 +42,7 @@ export const reducer = (state = INITIAL_STATE, action) => {
       };
     case actionTypes.REMOVE:
       return {
-        allTasks: [
-          ...state.allTasks.filter((task) => task.id !== action.payload),
-        ],
+        allTasks: [...state.allTasks.filter((task) => task.id !== action.payload)],
         loading: false,
         taskEdit: null,
       };

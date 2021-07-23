@@ -1,4 +1,4 @@
-import { actionTypes } from "../constants/listItem";
+import { actionTypes } from '../constants/listItem';
 
 export const actions = {
   loadTasks: () => {
@@ -7,12 +7,12 @@ export const actions = {
         type: actionTypes.FETCH_LOADING,
       });
 
-      fetch("http://localhost:8000/tasks")
+      fetch('http://localhost:8000/tasks')
         .then((r) => r.json())
         .then((tasks) => {
           dispatch({ type: actionTypes.LOAD_TASKS, payload: tasks });
         })
-        .catch((err) => {
+        .catch(() => {
           dispatch({ type: actionTypes.FETCH_ERROR });
         });
     };
@@ -24,10 +24,10 @@ export const actions = {
         type: actionTypes.FETCH_LOADING,
       });
 
-      fetch("http://localhost:8000/tasks", {
-        method: "POST",
+      fetch('http://localhost:8000/tasks', {
+        method: 'POST',
         body: JSON.stringify(task),
-        headers: { "Content-type": "application/json; charset=UTF-8" },
+        headers: { 'Content-type': 'application/json; charset=UTF-8' },
       })
         .then((r) => r.json())
         .then((task) => {
@@ -36,7 +36,7 @@ export const actions = {
             payload: task,
           });
         })
-        .catch((err) => {
+        .catch(() => {
           dispatch({ type: actionTypes.FETCH_ERROR });
         });
     };
@@ -58,9 +58,9 @@ export const actions = {
       });
 
       fetch(`http://localhost:8000/tasks/${task.id}`, {
-        method: "PUT",
+        method: 'PUT',
         body: JSON.stringify(task),
-        headers: { "Content-type": "application/json; charset=UTF-8" },
+        headers: { 'Content-type': 'application/json; charset=UTF-8' },
       })
         .then((r) => r.json())
         .then((task) => {
@@ -69,7 +69,7 @@ export const actions = {
             payload: task,
           });
         })
-        .catch((err) => {
+        .catch(() => {
           dispatch({ type: actionTypes.FETCH_ERROR });
         });
     };
@@ -82,7 +82,7 @@ export const actions = {
       });
 
       fetch(`http://localhost:8000/tasks/${id}`, {
-        method: "DELETE",
+        method: 'DELETE',
       })
         .then((r) => r.json())
         .then(() => {
@@ -91,7 +91,7 @@ export const actions = {
             payload: id,
           });
         })
-        .catch((err) => {
+        .catch(() => {
           dispatch({ type: actionTypes.FETCH_ERROR });
         });
     };
