@@ -1,6 +1,7 @@
-import { useDispatch } from "react-redux";
-import { actions } from "../../actions/listItem";
-import "./styles.css";
+import P from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { actions } from '../../actions/listItem';
+import './styles.css';
 
 export const ListItemTask = ({ task }) => {
   const dispatch = useDispatch();
@@ -33,4 +34,8 @@ export const ListItemTask = ({ task }) => {
       </div>
     </div>
   );
+};
+
+ListItemTask.propTypes = {
+  task: P.node.isRequired,
 };

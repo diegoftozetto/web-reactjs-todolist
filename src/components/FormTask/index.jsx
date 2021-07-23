@@ -1,19 +1,19 @@
-import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { selectors } from "../../selectors/listItem";
-import { actions } from "../../actions/listItem";
-import { Title } from "../../components/Title";
-import "./styles.css";
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectors } from '../../selectors/listItem';
+import { actions } from '../../actions/listItem';
+import { Title } from '../../components/Title';
+import './styles.css';
 
 export const FormTask = () => {
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
+  const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
 
   const taskEdit = useSelector(selectors.getTaskEdit);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (!!taskEdit) {
+    if (taskEdit) {
       const { name, description } = taskEdit;
       setName(name);
       setDescription(description);
@@ -29,8 +29,8 @@ export const FormTask = () => {
   };
 
   const clearForm = () => {
-    setName("");
-    setDescription("");
+    setName('');
+    setDescription('');
   };
 
   const formSubmitHandler = (e) => {
@@ -43,7 +43,7 @@ export const FormTask = () => {
     };
     clearForm();
 
-    if (!!taskEdit) {
+    if (taskEdit) {
       task = { id: taskEdit.id, ...task };
       dispatch(actions.update(task));
     } else {
@@ -61,10 +61,7 @@ export const FormTask = () => {
     <>
       <form onSubmit={formSubmitHandler}>
         <div className="inputtask-flex-container">
-          <Title
-            name="Nova Tarefa"
-            subName="Aqui você pode criar uma nova tarefa..."
-          />
+          <Title name="Nova Tarefa" subName="Aqui você pode criar uma nova tarefa..." />
           <input
             required
             maxLength="150"
@@ -85,7 +82,7 @@ export const FormTask = () => {
             onChange={handlerChangeDescription}
             value={description}
           />
-          {!!!taskEdit && <button type="submit">Adicionar Tarefa</button>}
+          {!taskEdit && <button type="submit">Adicionar Tarefa</button>}
           {!!taskEdit && (
             <div className="inputtask-editing">
               <button type="button" onClick={handlerCancelButton}>

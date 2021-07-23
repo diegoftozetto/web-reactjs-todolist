@@ -1,6 +1,6 @@
-import { FormTask } from "../../components/FormTask";
-import { ListTask } from "../../components/ListTask";
-import "./styles.css";
+import { FormTask } from '../../components/FormTask';
+import { ListTask } from '../../components/ListTask';
+import './styles.css';
 
 export const Home = () => {
   return (

@@ -1,12 +1,16 @@
-import "./styles.css";
+import P from 'prop-types';
+import './styles.css';
 
-export const Title = (props) => {
-  const { name, subName } = props;
-
+export const Title = ({ name, subName }) => {
   return (
     <div className="home-title">
       <h1>{name}</h1>
       <p>{subName}</p>
     </div>
   );
+};
+
+Title.propTypes = {
+  name: P.string.isRequired,
+  subName: P.string.isRequired,
 };
