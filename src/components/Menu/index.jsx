@@ -1,13 +1,13 @@
 import { NavLink } from 'react-router-dom';
-import './styles.css';
+import * as Styled from './styles';
 
 export const Menu = () => {
   return (
-    <nav className="menu-background">
-      <div className="menu-flex-container">
+    <Styled.MenuBackground>
+      <Styled.FlexContainer>
         <NavLink to="/home">Home</NavLink>
         <NavLink to="/about">Sobre</NavLink>
-      </div>
-    </nav>
+      </Styled.FlexContainer>
+    </Styled.MenuBackground>
   );
 };

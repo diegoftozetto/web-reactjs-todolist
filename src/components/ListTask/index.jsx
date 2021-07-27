@@ -2,9 +2,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { selectors } from '../../selectors/listItem';
 import { ListItemTask } from '../ListItemTask';
 import { Title } from '../../components/Title';
-import './styles.css';
 import { useEffect } from 'react';
 import { actions } from '../../actions/listItem';
+import * as Styled from './styles';
 
 export const ListTask = () => {
   const allTasks = useSelector(selectors.getAllTasks);
@@ -16,15 +16,23 @@ export const ListTask = () => {
   }, [dispatch]);
 
   return (
-    <div className="listtask-flex-container">
+    <Styled.FlexContainer>
       <Title name="Lista de Tarefas" subName="Aqui você pode visualizas suas tarefas..." />
-      <div className="listtask-alltasks">
-        {loading && <h5 className="listtask-box">Carregando...</h5>}
-        {(!loading && allTasks.length) === 0 && <h5 className="listtask-box">Nenhuma tarefa cadastrada =(</h5>}
+      <Styled.AllTasks>
+        {loading && (
+          <Styled.Box>
+            <h5>Carregando....</h5>
+          </Styled.Box>
+        )}
+        {(!loading && allTasks.length) === 0 && (
+          <Styled.Box>
+            <h5>Nenhuma tarefa cadastrada</h5>
+          </Styled.Box>
+        )}
         {allTasks.map((task) => (
           <ListItemTask key={task.id} task={task} />
         ))}
-      </div>
-    </div>
+      </Styled.AllTasks>
+    </Styled.FlexContainer>
   );
 };

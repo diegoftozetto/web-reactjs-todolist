@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectors } from '../../selectors/listItem';
 import { actions } from '../../actions/listItem';
 import { Title } from '../../components/Title';
-import './styles.css';
+import * as Styled from './styles';
 
 export const FormTask = () => {
   const [name, setName] = useState('');
@@ -60,7 +60,7 @@ export const FormTask = () => {
   return (
     <>
       <form onSubmit={formSubmitHandler}>
-        <div className="inputtask-flex-container">
+        <Styled.FlexContainer>
           <Title name="Nova Tarefa" subName="Aqui você pode criar uma nova tarefa..." />
           <input
             required
@@ -84,14 +84,14 @@ export const FormTask = () => {
           />
           {!taskEdit && <button type="submit">Adicionar Tarefa</button>}
           {!!taskEdit && (
-            <div className="inputtask-editing">
+            <Styled.AllButtonEdit>
               <button type="button" onClick={handlerCancelButton}>
                 Cancelar
               </button>
               <button type="submit">Salvar</button>
-            </div>
+            </Styled.AllButtonEdit>
           )}
-        </div>
+        </Styled.FlexContainer>
       </form>
     </>
   );

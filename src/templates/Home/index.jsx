@@ -1,13 +1,13 @@
 import { FormTask } from '../../components/FormTask';
 import { ListTask } from '../../components/ListTask';
-import './styles.css';
+import * as Styled from './styles.js';
 
 export const Home = () => {
   return (
-    <div className="container">
+    <>
       <FormTask />
-      <hr />
+      <Styled.Hr />
       <ListTask />
-    </div>
+    </>
   );
 };

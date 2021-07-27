@@ -1,12 +1,12 @@
 import P from 'prop-types';
-import './styles.css';
+import * as Styled from './styles';
 
 export const Title = ({ name, subName }) => {
   return (
-    <div className="home-title">
+    <Styled.HomeTitle>
       <h1>{name}</h1>
       <p>{subName}</p>
-    </div>
+    </Styled.HomeTitle>
   );
 };
 
