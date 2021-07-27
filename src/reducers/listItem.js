@@ -9,11 +9,11 @@ const INITIAL_STATE = {
 export const reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case actionTypes.FETCH_LOADING:
-      return { ...state, loading: true };
+      return { ...state, loading: true, taskEdit: null };
     case actionTypes.FETCH_ERROR:
-      return { ...state, loading: false };
+      return { ...state, loading: false, taskEdit: null };
     case actionTypes.LOAD_TASKS:
-      return { ...state, loading: false, allTasks: action.payload };
+      return { ...state, loading: false, allTasks: action.payload, taskEdit: null };
     case actionTypes.ADD:
       return {
         ...state,
