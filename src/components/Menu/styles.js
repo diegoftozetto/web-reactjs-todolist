@@ -25,7 +25,7 @@ export const MenuBackground = styled.div`
   background: white;
   box-shadow: 0px 0px 5px 5px rgba(56, 56, 56, 0.2);
 
-  &:active {
+  .active {
     font-weight: bold;
   }
 `;
