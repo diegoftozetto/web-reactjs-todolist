@@ -4,6 +4,7 @@ import { selectors } from '../../selectors/listItem';
 import { actions } from '../../actions/listItem';
 import { Title } from '../../components/Title';
 import * as Styled from './styles';
+import { Button } from '../Button';
 
 export const FormTask = () => {
   const [name, setName] = useState('');
@@ -82,13 +83,13 @@ export const FormTask = () => {
             onChange={handlerChangeDescription}
             value={description}
           />
-          {!taskEdit && <button type="submit">Adicionar Tarefa</button>}
+          {!taskEdit && <Button type="submit">Adicionar Tarefa</Button>}
           {!!taskEdit && (
             <Styled.AllButtonEdit>
-              <button type="button" onClick={handlerCancelButton}>
+              <Button type="button" onClick={handlerCancelButton}>
                 Cancelar
-              </button>
-              <button type="submit">Salvar</button>
+              </Button>
+              <Button type="submit">Salvar</Button>
             </Styled.AllButtonEdit>
           )}
         </Styled.FlexContainer>

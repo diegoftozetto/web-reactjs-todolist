@@ -11,7 +11,7 @@ export const FlexContainer = styled.div`
 
   input[type='text'],
   textarea {
-    margin: 10px 10px 0px 10px;
+    margin: 10px 0px 0px 0px;
     padding: 5px;
   }
 
@@ -21,15 +21,6 @@ export const FlexContainer = styled.div`
 
   textarea {
     resize: none;
-  }
-
-  button {
-    background-color: rgb(46, 95, 148);
-    cursor: pointer;
-    color: white;
-
-    height: 35px;
-    margin: 12px 10px 10px 10px;
   }
 `;
 
