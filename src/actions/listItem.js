@@ -7,7 +7,7 @@ export const actions = {
         type: actionTypes.FETCH_LOADING,
       });
 
-      fetch('http://localhost:8000/tasks')
+      fetch('https://my-json-server.typicode.com/diegoftozetto/api-reactjs-todolist/tasks')
         .then((r) => r.json())
         .then((tasks) => {
           dispatch({ type: actionTypes.LOAD_TASKS, payload: tasks });
@@ -24,7 +24,7 @@ export const actions = {
         type: actionTypes.FETCH_LOADING,
       });
 
-      fetch('http://localhost:8000/tasks', {
+      fetch('https://my-json-server.typicode.com/diegoftozetto/api-reactjs-todolist/tasks', {
         method: 'POST',
         body: JSON.stringify(task),
         headers: { 'Content-type': 'application/json; charset=UTF-8' },
@@ -57,7 +57,7 @@ export const actions = {
         type: actionTypes.FETCH_LOADING,
       });
 
-      fetch(`http://localhost:8000/tasks/${task.id}`, {
+      fetch(`https://my-json-server.typicode.com/diegoftozetto/api-reactjs-todolist/tasks/${task.id}`, {
         method: 'PUT',
         body: JSON.stringify(task),
         headers: { 'Content-type': 'application/json; charset=UTF-8' },
@@ -81,7 +81,7 @@ export const actions = {
         type: actionTypes.FETCH_LOADING,
       });
 
-      fetch(`http://localhost:8000/tasks/${id}`, {
+      fetch(`https://my-json-server.typicode.com/diegoftozetto/api-reactjs-todolist/tasks/${id}`, {
         method: 'DELETE',
       })
         .then((r) => r.json())
