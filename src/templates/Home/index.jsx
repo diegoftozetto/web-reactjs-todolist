@@ -1,13 +1,10 @@
-import { FormTask } from '../../components/FormTask';
-import { ListTask } from '../../components/ListTask';
-import * as Styled from './styles.js';
+import * as Styled from './styles';
 
 export const Home = () => {
   return (
-    <>
-      <FormTask />
-      <Styled.Hr />
-      <ListTask />
-    </>
+    <Styled.Content>
+      <Styled.H1>Bem vindo ao Gerenciador de Tarefas...</Styled.H1>
+      <Styled.Backgroud src={'/images/to-do-list.png'} alt="" />
+    </Styled.Content>
   );
 };
