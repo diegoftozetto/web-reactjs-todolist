@@ -10,7 +10,6 @@ export const actions = {
       login('9f235380-7db5-4458-bc4a-e53947fd2cb4');
       dispatch({ type: actionTypes.LOGIN_SUCCESS, payload: user });
 
-      window.location.pathname = '/task';
     };
   },
 
