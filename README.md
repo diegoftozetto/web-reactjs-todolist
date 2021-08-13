@@ -8,6 +8,8 @@
 
 > O projeto está hospedado no Netlify: [ToDoList](https://mystifying-newton-9c5a3b.netlify.app/task).
 
+<img src="https://user-images.githubusercontent.com/47945703/129308723-d3a4deb0-806c-4e9e-a743-622551c99e43.png" alt="ToDoList" width="900"/>
+
 ## Dependências e Instalação
 
 > O projeto utiliza algumas dependências, tais como: `prop-types`, `react-router-dom`, `redux`, `redux-thunk`, `styled-components` etc.
