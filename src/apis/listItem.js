@@ -1,4 +1,4 @@
-export const listItemApis = {
+export const apis = {
   loadTasks: () =>
     fetch('https://my-json-server.typicode.com/diegoftozetto/api-reactjs-todolist/tasks').then((r) => r.json()),
   add: (task) =>
