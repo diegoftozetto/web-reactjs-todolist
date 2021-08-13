@@ -3,8 +3,8 @@ import { selectors } from '../../selectors/listItem';
 import { ListItemTask } from '../ListItemTask';
 import { Title } from '../../components/Title';
 import { useEffect } from 'react';
-import { actions } from '../../actions/listItem';
 import * as Styled from './styles';
+import { thunks as listItemThunks } from '../../thunks/listItem';
 
 export const ListTask = () => {
   const allTasks = useSelector(selectors.getAllTasks);
@@ -12,7 +12,7 @@ export const ListTask = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(actions.loadTasks());
+    dispatch(listItemThunks.loadTasks());
   }, [dispatch]);
 
   return (

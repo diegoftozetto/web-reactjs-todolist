@@ -1,4 +1,4 @@
-import { actions } from '../actions/user';
+import { thunks as loginThunks } from '../thunks/login';
 
 const TOKEN_KEY = '@tasks-Token';
 
@@ -12,5 +12,5 @@ export const login = (token) => {
 
 export const logout = () => {
   localStorage.removeItem(TOKEN_KEY);
-  return actions.logout();
+  return loginThunks.logout();
 };

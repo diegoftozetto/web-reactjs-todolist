@@ -1,20 +1,9 @@
 import { actionTypes } from '../constants/user';
-import { login } from '../services/auth';
 
 export const actions = {
-  login: (user) => {
-    return (dispatch) => {
-      dispatch({ type: actionTypes.LOGIN_REQUEST });
+  loginRequest: () => ({ type: actionTypes.LOGIN_REQUEST }),
+  loginSuccess: () => ({ type: actionTypes.LOGIN_SUCCESS }),
+  loginFailure: () => ({ type: actionTypes.LOGIN_FAILURE }),
 
-      dispatch({ type: actionTypes.LOGIN_REQUEST, payload: user });
-      login('9f235380-7db5-4458-bc4a-e53947fd2cb4');
-      dispatch({ type: actionTypes.LOGIN_SUCCESS, payload: user });
-    };
-  },
-
-  logout: () => {
-    return (dispatch) => {
-      dispatch({ type: actionTypes.LOGOUT });
-    };
-  },
+  logout: () => ({ type: actionTypes.LOGOUT }),
 };

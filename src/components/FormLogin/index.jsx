@@ -1,7 +1,7 @@
 // import { useState } from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { actions } from '../../actions/user';
+import { thunks as loginThunks } from '../../thunks/login';
 import { Button } from '../Button';
 import { Title } from '../Title';
 import * as Styled from './styles';
@@ -25,7 +25,7 @@ export const FormLogin = () => {
     const { username, password } = e.target;
 
     dispatch(
-      actions.login({
+      loginThunks.login({
         username: username.value,
         password: password.value,
       }),
